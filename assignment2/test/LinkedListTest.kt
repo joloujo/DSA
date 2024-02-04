@@ -7,6 +7,7 @@ class LinkedListTest {
         val l = LinkedList<Int>()
 
         l.pushFront(1) // 1
+        // make sure the first and last are both populated
         assertEquals(l.peekFront(), l.peekBack())
         l.pushFront(2) // 2, 1
         l.pushFront(3) // 3, 2, 1
@@ -20,6 +21,7 @@ class LinkedListTest {
         val l = LinkedList<Int>()
 
         l.pushBack(1) // 1
+        // make sure the first and last are both populated
         assertEquals(l.peekFront(), l.peekBack())
         l.pushBack(2) // 1, 2
         l.pushBack(3) // 1, 2, 3
@@ -71,7 +73,7 @@ class LinkedListTest {
         val l = LinkedList<Int>()
         assertEquals(true, l.isEmpty())
 
-        // Test each combination of pushing to and popping from the front and back to make sure each combination is
+        // test each combination of pushing to and popping from the front and back to make sure each combination is
         // handled correctly
 
         l.pushFront(1) // 1

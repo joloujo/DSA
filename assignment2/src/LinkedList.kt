@@ -1,3 +1,6 @@
+/**
+ * A doubly linked list
+ */
 class LinkedList<T> {
     private var head: LinkedListNode<T>? = null
     private var tail: LinkedListNode<T>? = null
@@ -10,7 +13,7 @@ class LinkedList<T> {
         head = LinkedListNode(data, next = head)
         // update the old head's (head?.next) previous reference to be the new head
         head?.next?.prev = head
-        // If the linked list was empty, then the tail is also the head
+        // if the linked list was empty, then the tail is also the head
         if (tail == null) tail = head
     }
 
@@ -22,7 +25,7 @@ class LinkedList<T> {
         tail = LinkedListNode(data, prev = tail)
         // update the old tail's (tail?.prev) next reference to be the new tail
         tail?.prev?.next = tail
-        // If the linked list was empty, then the head is also the tail
+        // if the linked list was empty, then the head is also the tail
         if (head == null) head = tail
     }
 
@@ -37,7 +40,7 @@ class LinkedList<T> {
         head = head?.next
         // remove the reference to the node to be popped
         head?.prev = null
-        // If the linked list is now empty, the tail is also null
+        // if the linked list is now empty, the tail is also null
         if (head == null) tail = null
         // return the value of the first node
         return data
@@ -80,7 +83,7 @@ class LinkedList<T> {
      * @return true if the list is empty and false otherwise
      */
     fun isEmpty(): Boolean {
-        // If the head is empty, there are no nodes in the linked list
+        // if the head is null, there are no nodes in the linked list
         return head == null
     }
 }
