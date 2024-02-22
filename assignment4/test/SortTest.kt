@@ -7,9 +7,12 @@ class SortTest {
      * @param sort the sorting algorithm to be tested
      */
     private fun testSort(sort: (list: MutableList<Int>) -> Unit) {
-        for (i in 1..10) {
-            val randomList = MutableList(10) { Random.nextInt(0, 100) }
+        for (i in 1..100) {
+            // Generate a list with a random length 10->100 with random integers from -100->100
+            val randomList = MutableList(Random.nextInt(10, 100)) { Random.nextInt(-100, 100) }
+            // Try to sort it
             sort(randomList)
+            // Make sure it's sorted
             assertTrue(sorted(randomList))
         }
     }
@@ -17,6 +20,7 @@ class SortTest {
     @org.junit.jupiter.api.Test
     fun testSorts() {
         testSort(::quickSort)
+        testSort(::mergeSort)
     }
 
     /**
@@ -24,6 +28,7 @@ class SortTest {
      * @param list the list to be checked
      */
     private fun <T : Comparable<T>> sorted(list: List<T>): Boolean {
+        // Check every pair of values to make sure they are non-decreasing
         for (i in 0..list.size-2) {
             if (list[i] > list[i+1]) {
                 return false
