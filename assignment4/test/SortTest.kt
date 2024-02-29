@@ -21,6 +21,7 @@ class SortTest {
     fun testSorts() {
         testSort(::quickSort)
         testSort(::mergeSort)
+        testSort(::selectionSort)
     }
 
     /**
