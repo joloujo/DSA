@@ -6,12 +6,17 @@ class SortTest {
      * Tests a specific sorting algorithm [sort]
      * @param sort the sorting algorithm to be tested
      */
-    private fun testSort(sort: (list: MutableList<Int>) -> Unit) {
+    private fun testSort(sort: (list: MutableList<Int>) -> Unit, allowNegatives: Boolean = true) {
+        // Test 100 times
         for (i in 1..100) {
             // Generate a list with a random length 10->100 with random integers from -100->100
-            val randomList = MutableList(Random.nextInt(10, 100)) { Random.nextInt(-100, 100) }
+            // If negatives aren't allowed, use the range 0->100
+            val from = if (allowNegatives) -100 else 0
+            val randomList = MutableList(Random.nextInt(10, 100)) { Random.nextInt(from, 100) }
+
             // Try to sort it
             sort(randomList)
+
             // Make sure it's sorted
             assertTrue(sorted(randomList))
         }
@@ -22,6 +27,7 @@ class SortTest {
         testSort(::quickSort)
         testSort(::mergeSort)
         testSort(::selectionSort)
+        testSort(::radixSort, false)
     }
 
     /**
