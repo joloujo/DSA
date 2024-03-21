@@ -1,0 +1,62 @@
+Attempt 1:
+    2 x 2 matrix:
+        Naive:    763.3us
+        Strassen: 2.719100ms
+    4 x 4 matrix:
+        Naive:    54.2us
+        Strassen: 8.883ms
+    8 x 8 matrix:
+        Naive:    187.5us
+        Strassen: 1.953300ms
+    16 x 16 matrix:
+        Naive:    838.6us
+        Strassen: 6.696200ms
+    32 x 32 matrix:
+        Naive:    4.608200ms
+        Strassen: 20.502700ms
+    64 x 64 matrix:
+        Naive:    27.772200ms
+        Strassen: 137.302600ms
+    128 x 128 matrix:
+        Naive:    132.739100ms
+        Strassen: 769.37ms
+    256 x 256 matrix:
+        Naive:    544.042200ms
+        Strassen: 2.449169700s
+    512 x 512 matrix:
+        Naive:    5.747255200s
+        Strassen: 10.210873300s
+    1024 x 1024 matrix:
+        Naive:    1m 4.820434900s
+        Strassen: 48.251656800s
+Attempt 2:
+    2 x 2 matrix:
+        Naive:    577us
+        Strassen: 2.852800ms
+    4 x 4 matrix:
+        Naive:    188.7us
+        Strassen: 7.678300ms
+    8 x 8 matrix:
+        Naive:    172.3us
+        Strassen: 1.688800ms
+    16 x 16 matrix:
+        Naive:    801.1us
+        Strassen: 7.970500ms
+    32 x 32 matrix:
+        Naive:    5.167200ms
+        Strassen: 27.890200ms
+    64 x 64 matrix:
+        Naive:    30.986400ms
+        Strassen: 84.302300ms
+    128 x 128 matrix:
+        Naive:    50.331200ms
+        Strassen: 382.599300ms
+    256 x 256 matrix:
+        Naive:    357.546500ms
+        Strassen: 2.471704400s
+    512 x 512 matrix:
+        Naive:    5.625661200s
+        Strassen: 10.003870700s
+    1024 x 1024 matrix:
+        Naive:    1m 13.559422200s
+        Strassen: 59.839100600s
