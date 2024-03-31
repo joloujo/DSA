@@ -11,6 +11,8 @@ class MyAssociativeArray<K, V> : AssociativeArray<K, V> {
         remove(key) // reduces size if removed,
         size += 1 // so it needs to be added back no matter what
 
+        if (size >= n * loadFactor) rehash()
+
         buckets[bucket].add(Pair(key, value))
     }
 
@@ -53,9 +55,26 @@ class MyAssociativeArray<K, V> : AssociativeArray<K, V> {
         buckets.forEach { pairs.addAll(it) }
         return pairs
     }
+
+    private fun rehash() {
+        val pairs = keyValuePairs()
+
+        for (prime in goodPrimes) {
+            if (size < prime * loadFactor) {
+                n = prime
+                break
+            }
+        }
+
+        buckets = MutableList(n) { mutableListOf() }
+
+        for (pair in pairs) {
+            set(pair.first, pair.second)
+        }
+    }
 }
 
-val goodPrimes = listOf(
+private val goodPrimes = listOf(
     53,
     97,
     193,

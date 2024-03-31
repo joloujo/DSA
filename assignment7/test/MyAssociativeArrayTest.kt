@@ -54,4 +54,22 @@ class MyAssociativeArrayTest {
         // Test size after remove
         assertEquals(2, arr.size())
     }
+
+    @org.junit.jupiter.api.Test
+    fun rehash() {
+        // We need at least 53 * 3 = 159 elements
+        val arr = MyAssociativeArray<Char, Int>()
+        val pairs = mutableListOf<Pair<Char, Int>>()
+
+        // Add a bunch of elements to the array
+        for (i in 0..158) {
+            val c = i.toChar()
+            arr[c] = i
+            pairs.add(Pair(c, i))
+        }
+
+        // Make sure all the pairs are in the associative array, and all the associative array elements are in the pairs
+        assertTrue(arr.keyValuePairs().containsAll(pairs))
+        assertTrue(pairs.containsAll(arr.keyValuePairs()))
+    }
 }
