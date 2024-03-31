@@ -2,11 +2,15 @@ import org.junit.jupiter.api.Assertions.*
 
 class MyAssociativeArrayTest {
 
+    /**
+     * Test the main functions of the associative array
+     */
     @org.junit.jupiter.api.Test
     fun test() {
+        // Make the associative array
         val arr = MyAssociativeArray<Char, Int>()
 
-        // Test basic set
+        // Test set
         arr['A'] = 1
         arr['B'] = 2
         arr['C'] = 3
@@ -55,21 +59,26 @@ class MyAssociativeArrayTest {
         assertEquals(2, arr.size())
     }
 
+    /**
+     * Test to make sure that rehashing works correctly and automatically
+     */
     @org.junit.jupiter.api.Test
     fun rehash() {
-        // We need at least 53 * 3 = 159 elements
+        // Make an associative array to test and a list of pairs to check against
         val arr = MyAssociativeArray<Char, Int>()
         val pairs = mutableListOf<Pair<Char, Int>>()
 
-        // Add a bunch of elements to the array
+        // Add elements to the array and list of pairs
+        // We need at least 53 (default n) * 3 (default load factor) = 159 elements (0 -> 158)
         for (i in 0..158) {
             val c = i.toChar()
             arr[c] = i
             pairs.add(Pair(c, i))
         }
 
-        // Make sure all the pairs are in the associative array, and all the associative array elements are in the pairs
+        // Make sure all the pairs are in the associative array,
         assertTrue(arr.keyValuePairs().containsAll(pairs))
+        // and all the associative array elements are in the pairs
         assertTrue(pairs.containsAll(arr.keyValuePairs()))
     }
 }
