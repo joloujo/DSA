@@ -28,6 +28,9 @@ class lempelZivKtTest {
         org.junit.jupiter.api.assertThrows<ArithmeticException> { (10).toBits(3) }
     }
 
+    /**
+     * Test the lempelZiv function with strings. This example is from Peter Shor's notes
+     */
     @Test
     fun lempelZivBits() {
         val input = "AABABBBABAABABBBABBABB".toCharArray().map { it == 'B' }
@@ -35,18 +38,25 @@ class lempelZivKtTest {
         assertEquals(output, lempelZiv(input))
     }
 
+    /**
+     * Test the lempelZiv function with a bit array. This example is from the
+     * [Lempel–Ziv–Welch wikipedia page](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch).
+     * The end behavior on this example lines up with adding a pair to the codebook
+     */
     @Test
     fun lempelZivString1() {
         val input = "TOBEORNOTTOBEORTOBEORNOT#"
-        /*
+        /* The first steps to finding the solution, done by hand
         1  2  3  4  5  6  7  8  9  10  11 12 13 14 15
         T  O  B  E  OR N  OT TO BE ORT OB EO R  NO T#
         0T 0O 0B 0E 2R 0N 2T 1O 3E 5T  2B 4O 0R 6O 1#
         */
 
+        // A string representation of the output in the format code,char|...
         val outputString = "0,T|0,O|00,B|00,E|010,R|000,N|010,T|001,O|0011,E|0101,T|0010,B|0100,O|0000,R|0110,O|0001,#"
-        val output = mutableListOf<Boolean>()
 
+        // Find the output bit array from the output string
+        val output = mutableListOf<Boolean>()
         for (c in outputString) {
             when (c) {
                 '0' -> output.add(false)
@@ -58,22 +68,31 @@ class lempelZivKtTest {
             }
         }
 
+        // Test lempelZiv
         assertEquals(output, lempelZiv(input))
 
     }
 
+    /**
+     * Test the lempelZiv function with a bit array. This example is modified from the
+     * [Lempel–Ziv–Welch wikipedia page](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch).
+     * This example was modified so the end behavior on does not line up with adding a pair to the codebook. This tests
+     * more code.
+     */
     @Test
     fun lempelZivString2() {
         val input = "TOBEORNOTTOBEORTOBEORNOT"
-        /*
+        /* The first steps to finding the solution, done by hand
         1  2  3  4  5  6  7  8  9  10  11 12 13 14 15
         T  O  B  E  OR N  OT TO BE ORT OB EO R  NO T
         0T 0O 0B 0E 2R 0N 2T 1O 3E 5T  2B 4O 0R 6O 1
         */
 
+        // A string representation of the output in the format code,char|...
         val outputString = "0,T|0,O|00,B|00,E|010,R|000,N|010,T|001,O|0011,E|0101,T|0010,B|0100,O|0000,R|0110,O|0001"
-        val output = mutableListOf<Boolean>()
 
+        // Find the output bit array from the output string
+        val output = mutableListOf<Boolean>()
         for (c in outputString) {
             when (c) {
                 '0' -> output.add(false)
@@ -85,6 +104,7 @@ class lempelZivKtTest {
             }
         }
 
+        // Test lempelZiv
         assertEquals(output, lempelZiv(input))
 
     }

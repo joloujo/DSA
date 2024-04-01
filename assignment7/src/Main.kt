@@ -31,6 +31,7 @@ fun benchmarkString(name: String, filepath: String) {
 
     println("    LZ compression with bits:")
 
+    // Convert the text into a bit array
     val bits = mutableListOf<Boolean>()
     for (c in text) {
         bits.addAll(c.toBits())
