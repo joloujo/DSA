@@ -2,14 +2,39 @@
  * A binary search tree of type [T] that uses the red-black tree invariants to self-balance
  */
 class RBTree<T : Comparable<T>> {
-    private var root: RBNode<T>? = null
+    var root: RBNode<T>? = null
 
     /**
      * Rotates the tree about the given [node]. Automatically detects direction
      * @param node the node to rotate about
      */
     fun rotate(node: RBNode<T>) {
-        // TODO()
+        // Make sure the node has a parent
+        if (node.parent == null) throw(NullPointerException("Parent of node cannot be null"))
+
+        // Save the grandparent and what side of it this node's parent is on to update the pointer later
+        val grandparent = node.parent!!.parent
+        val grandparentSide = if (grandparent == null) null else {
+            if (node.parent == grandparent[LEFT]) LEFT else RIGHT
+        }
+
+        // Determine which side the parent is on, from the perspective of the node
+        val parentSide = if (node == node.parent!![LEFT]) RIGHT else LEFT
+
+        // Rotate the tree towards the parent
+        node.parent!![!parentSide] = node[parentSide]
+        node[parentSide] = node.parent
+
+        // Update the grandparent's pointer
+        if (grandparent == null) {
+            // If the parent was the root, make the node the root and update the node's parent to represent being the
+            // root
+            node.parent = null
+            root = node
+        } else {
+            // If the root had a grandparent, make it point to the node on the correct side.
+            grandparent[grandparentSide!!] = node
+        }
     }
 
     /**

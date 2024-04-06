@@ -22,12 +22,14 @@ class RBNode<T : Comparable<T>>(val element: T, var parent: RBNode<T>?, var colo
      * @param direction the child to set
      * @param node the node to set the child to
      */
-    operator fun set(direction: Boolean, node: RBNode<T>) {
-        return if (direction == LEFT) {
+    operator fun set(direction: Boolean, node: RBNode<T>?) {
+        if (direction == LEFT) {
             left = node
         } else {
             right = node
         }
+
+        node?.parent = this
     }
 
     /**
