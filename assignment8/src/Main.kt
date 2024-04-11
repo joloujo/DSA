@@ -1,23 +1,11 @@
 fun main() {
-    val rbTree = rbTreeOf(2, 1, 3)
-//    println(rbTree)
-//    println(if (rbTree.followsInvariant()) "Valid" else "Invalid")
-//    println("4 is${if (rbTree.contains(4)) " " else " not "}in the tree")
-
-//    println("-".repeat(10))
-
-    rbTree.add(4)
-    println(rbTree)
-//    println(if (rbTree.followsInvariant()) "Valid" else "Invalid")
-//    println("4 is${if (rbTree.contains(4)) " " else " not "}in the tree")
-
-//    println("-".repeat(10))
-
-    rbTree.rotate(rbTree.root!![RIGHT]!!)
-    println(rbTree)
-
-    println("-".repeat(10))
-
-    rbTree.rotate(rbTree.root!![LEFT]!!)
-    println(rbTree)
+    val tree = RBTree<Int>()
+    tree.add(5)
+    tree.add(3)
+    tree.add(2)
+    tree.add(7)
+    tree.add(6)
+    tree.add(4)
+    tree.add(1)
+    println(tree)
 }

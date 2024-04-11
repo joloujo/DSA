@@ -2,28 +2,29 @@
  * A binary search tree of type [T] that uses the red-black tree invariants to self-balance
  */
 class RBTree<T : Comparable<T>> {
-    var root: RBNode<T>? = null
+    private var root: RBNode<T>? = null
 
     /**
-     * Rotates the tree about the given [node]. Automatically detects direction
+     * Rotates the tree about the given [node]'s parent. Because a node can only have one parent, the rotation direction
+     * can be automatically detected.
      * @param node the node to rotate about
      */
-    fun rotate(node: RBNode<T>) {
+    private fun rotateParent(node: RBNode<T>) {
         // Make sure the node has a parent
-        if (node.parent == null) throw(NullPointerException("Parent of node cannot be null"))
+        if (node.parent == null) throw(NullPointerException("Parent of \n$node\n in \n$this\n cannot be null"))
 
         // Save the grandparent and what side of it this node's parent is on to update the pointer later
         val grandparent = node.parent!!.parent
-        val grandparentSide = if (grandparent == null) null else {
+        val parentSide = if (grandparent == null) null else {
             if (node.parent == grandparent[LEFT]) LEFT else RIGHT
         }
 
-        // Determine which side the parent is on, from the perspective of the node
-        val parentSide = if (node == node.parent!![LEFT]) RIGHT else LEFT
+        // Determine which side of the parent this node is on
+        val side = if (node == node.parent!![LEFT]) LEFT else RIGHT
 
         // Rotate the tree towards the parent
-        node.parent!![!parentSide] = node[parentSide]
-        node[parentSide] = node.parent
+        node.parent!![side] = node[!side]
+        node[!side] = node.parent
 
         // Update the grandparent's pointer
         if (grandparent == null) {
@@ -33,7 +34,7 @@ class RBTree<T : Comparable<T>> {
             root = node
         } else {
             // If the root had a grandparent, make it point to the node on the correct side.
-            grandparent[grandparentSide!!] = node
+            grandparent[parentSide!!] = node
         }
     }
 
@@ -57,9 +58,59 @@ class RBTree<T : Comparable<T>> {
 
         // Make a new node at the leaf
         node[dir] = element
-        node[dir]!!.color = RED
 
-        // TODO()
+        // Resolve any issues so the invariants are followed, starting with the inserted node
+        resolve(node[dir]!!)
+    }
+
+    /**
+     * Traverses up the tree, starting with the given [node], making sure the invariants are followed.
+     * @param node the node to resolve from
+     */
+    private fun resolve(node: RBNode<T>) {
+        // If the node is the root, return
+        val parent = node.parent ?: return
+
+        // If the parent is black, invariants are followed
+        if (parent.color == BLACK) return
+
+        // Because the parent is red, the parent isn't the root, there is necessarily a grandparent
+        val grandparent = parent.parent!!
+        val parentSide = if (parent == grandparent[LEFT]) LEFT else RIGHT
+
+        // Get the parent's sibling
+        val uncle = grandparent[!parentSide]
+
+        // If the uncle is red
+        if (uncle != null && uncle.color == RED) {
+            // Flip the color of the parent, it's sibling, and the grandparent.
+            parent.color = BLACK
+            uncle.color = BLACK
+            grandparent.color = RED
+
+            // The next node that could be wrong is the grandparent
+            resolve(grandparent)
+        }
+        else {
+            // Keep track of the next node
+            var next = node
+
+            // If the node, it's parent, and it's grandparent form a triangle, rotate to they form a line
+            if (node == parent[!parentSide]) {
+                next = parent
+                rotateParent(node)
+            }
+
+            // The node, it's parent, and it's grandparent form a line, rotate the problem up the tree
+            next.parent!!.color = BLACK
+            next.parent!!.parent!!.color = RED
+            rotateParent(next.parent!!)
+
+            // Resolve the next node that could be wrong
+            resolve(next)
+        }
+
+        root!!.color = BLACK
     }
 
     /**
