@@ -5,37 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e77ddd5e-589d-471c-b7da-b7cc78af33dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/src/IntMatrix.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/src/SWDemo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/src/smithWaterman.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/src/times.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment5/test/IntMatrixTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assignment6/src/Graph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Permanent_Script_Dependencies.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment4.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/benchmark.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/benchmark.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mergeSort.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quickSort.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radixSort.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectionSort.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swap.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/RadixSortHelperTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SortTest.kt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/kandyTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment5/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment5/src/Main.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment5/src/Matrix.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment5/src/Matrix.kt" afterDir="false" />
@@ -50,6 +22,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -70,6 +49,8 @@
     "Gradle.Build assignment4.executor": "Run",
     "Gradle.RadixSortHelperTest.executor": "Run",
     "Gradle.SortTest.executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
+    "Kotlin.KandyTestKt.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -84,7 +65,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.SortTest">
+  <component name="RunManager" selected="Kotlin.KandyTestKt">
     <configuration name="RadixSortHelperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -133,6 +114,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="KandyTestKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="KandyTestKt" />
+      <module name="assignment4.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="assignment4.main" />
@@ -140,8 +128,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="build.gradle.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="assignment4" />
+      <option name="filePath" value="$PROJECT_DIR$/build.gradle.kts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.KandyTestKt" />
+        <item itemvalue="Kotlin script (Beta).build.gradle.kts" />
         <item itemvalue="Gradle.SortTest" />
         <item itemvalue="Gradle.RadixSortHelperTest" />
         <item itemvalue="Kotlin.MainKt" />
@@ -163,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713292244509</updated>
-      <workItem from="1713292245514" duration="696000" />
+      <workItem from="1713292245514" duration="1230000" />
     </task>
     <servers />
   </component>
