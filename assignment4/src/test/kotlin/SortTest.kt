@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import kotlin.random.Random
 
@@ -22,7 +23,7 @@ class SortTest {
         }
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     fun testSorts() {
         testSort(::quickSort)
         testSort(::mergeSort)
@@ -44,7 +45,7 @@ class SortTest {
         return true
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     fun testSorted() {
         assertTrue(sorted(listOf(1, 2, 3)))
         assertTrue(sorted(listOf(1, 10, 100)))
