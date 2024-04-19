@@ -80,7 +80,7 @@ fun digitRange(number: Number): Pair<Int, Int> {
     // Make the "digit of interest" in the ones place
     var scaledNumber = number.toDouble() / 10.0.pow(smallDigit)
     // Keep shifting until the number is whole, meaning that we reached the last non-zero digit.
-    while (floor(scaledNumber) != scaledNumber) {
+    while (abs(round(scaledNumber) - scaledNumber) > 10.0.pow(-10)) {
         scaledNumber *= 10
         smallDigit--
     }

@@ -2,7 +2,7 @@
  * Sorts a [list] using quick sort. Sorts in place.
  * @param list the list to be sorted
  */
-fun <T : Comparable<T>> quickSort(list: MutableList<T>, start: Int = 0, end: Int = list.size-1) {
+fun <T : Comparable<T>> quickSort(list: MutableList<T>, start: Int, end: Int) {
     // If the length of the section to sort is 1 or 2, it is trivial
     when (end - start) {
         // If there is only 1 value, it is sorted
@@ -41,4 +41,10 @@ fun <T : Comparable<T>> quickSort(list: MutableList<T>, start: Int = 0, end: Int
     if (end-pivotFinalIndex > 1) {
         quickSort(list, pivotFinalIndex+1, end)
     }
+}
+
+fun <T : Comparable<T>> quickSort(list: MutableList<T>) {
+    val start = 0
+    val end = list.size - 1
+    quickSort(list, start, end)
 }

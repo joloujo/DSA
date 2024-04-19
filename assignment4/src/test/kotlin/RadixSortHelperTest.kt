@@ -28,6 +28,7 @@ class RadixSortHelperTest {
         assertEquals(digitRange(10), Pair(1, 1))
         assertEquals(digitRange(11), Pair(1, 0))
         assertEquals(digitRange(301.1), Pair(2, -1))
+        assertEquals(digitRange(501), Pair(2, 0))
 
         org.junit.jupiter.api.assertThrows<IllegalArgumentException> {
             digitRange(-1)
