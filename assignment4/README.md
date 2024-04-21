@@ -46,3 +46,36 @@ the most widely used sorting algorithm out of the ones I implemented, because it
 small lists and large ones. I was surprised by how well radix sort performed, and with very large datasets that have
 a small range of numbers, I could see it being very useful. In pretty much any other application, though, I would just
 go with quick sort.
+
+## New Frontiers in Sorting?
+
+
+
+## Practice with the master theorem
+Here are my answers to [the worksheet from MIT 6.046](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf)
+
+1. $T(n)=\Theta(n^{2})$
+2. $T(n)=\Theta(n^{\log_2{7}})$
+3. $T(n)=\Theta(n^{2}\log{n})$
+4. $T(n)=\Theta(n\log{n})$
+5. $T(n)=\Theta(n^{2})$
+6. Doesn't apply
+7. $T(n)=\Theta(n^{2}\log^{2}{n})$
+8. $T(n)=\Theta(n^{\log_2{5}})$
+9. $T(n)=\Theta(n\log{\log{n}})$
+10. $T(n)=\Theta(n^{\frac{1}{2}})$
+11. $T(n)=\Theta(\log^{2}{n})$
+12. Doesn't apply
+13. $T(n)=\Theta(n^{\frac{1}{2}})$
+14. $T(n)=\Theta(n\log^{2}{n})$
+15. Doesn't apply
+16. $T(n)=\Theta(n^{\frac{1}{2}}\log{n})$
+17. $T(n)=\Theta(n^{0.51})$
+18. $T(n)=\Theta(n!)$
+19. $T(n)=\Theta(n^{\log_2{3}})$
+20. $T(n)=\Theta(n^{2})$
+21. $T(n)=\Theta(n\log{n})$
+22. $T(n)=\Theta(n^{2})$
+23. $T(n)=\Theta(n^{2})$
+24. $T(n)=\Theta(2^{n})$
+25. $T(n)=\Theta(n^{2})$
