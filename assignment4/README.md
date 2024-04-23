@@ -48,8 +48,24 @@ a small range of numbers, I could see it being very useful. In pretty much any o
 go with quick sort.
 
 ## New Frontiers in Sorting?
+Sorting is a ubiquitous task in computer science, and because of this, it has been researched and optimized an 
+incredible amount. Another consequence of its importance is that, despite it being extremely optimized, even the most
+basic sorting algorithms are still the subject of research. For example, the fundamental fixed and variable length 
+sorting algorithms for small sequences of numbers, which are used by larger sorting algorithms as base cases, are still 
+surprisingly being optimized today. These algorithms take sequence of a small, fixed length (i.e. 3, 4, 5) or variable 
+length (up to `n`) and sort it. Because these base cases are called many times when more complex sorting algorithms sort
+longer sequences, even a small improvement in performance (in other words a reduction in latency) can have a large 
+impact on the performance of the larger sort.
 
-
+I read [this paper from Google's AlphaDev developers](https://www.nature.com/articles/s41586-023-06004-9), which was 
+published in Nature in June 2023. They were able to train a deep learning model to find more efficient small sort
+algorithms by making it play a "game" where it wrote machine code. This has the advantage of bypassing the compiler, and
+being able to optimize the machine code directly. This model was able to improve the fixed sort algorithms for lengths 3
+and 5. The researchers also successfully improved the fixed sort algorithms for lengths 6, 7, and 8 with a variant of
+their model. AlphaDev was also able to improve on variable length small sorts. There is discussion of applying this
+method of optimizing algorithms using machine learning to other common problems in computer science. Interestingly, this
+paper also discussed using brute-force to find these algorithms, and did so for fixed sort 3. They concluded it wasn't 
+feasible for anything beyond that though due to its incredibly high search space.
 
 ## Practice with the master theorem
 Here are my answers to [the worksheet from MIT 6.046](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf)
