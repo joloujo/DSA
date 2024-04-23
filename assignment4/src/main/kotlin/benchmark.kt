@@ -26,19 +26,27 @@ const val LENGTH_POWER = 13
  * @return a [Pair] of the mean and standard deviation of the runtime
  */
 fun benchmark(sort: (list: MutableList<Int>) -> Unit, length: Int, cycles: Int = CYCLES): Pair<Double, Double> {
+    // Create a list to store the times
     val times = mutableListOf<Double>()
 
     for (i in 1..cycles) {
+        // Measure the time it takes to sort
         val time = measureTime {
+            // Sort a random list
             val randomList = MutableList(length) { Random.nextInt(LIST_MAX) }
             sort(randomList)
         }
+        // Add the time to the list of times
         times.add(time.toDouble(DurationUnit.SECONDS))
     }
 
+    // Find the average time
     val mean = times.average()
+
+    // Find the standard deviation of the time
     val variance = times.map { (it - mean).pow(2) }.average()
     val stddev = sqrt(variance)
+
     return Pair(mean, stddev)
 }
 
@@ -87,11 +95,15 @@ fun main() {
 
     val meanTimes = timeCol.map { it.first }
 
+    // Plot the data
     plot {
+        // Plot list length along x in log scale
         x(lengthCol) {
             scale = Scale.continuousPos(min(lengthCol), max(lengthCol), transform = Transformation.LOG10)
             axis.name = "List length (items)"
         }
+
+        // Plot average time along y in log scale with both points and lines
         points {
             y(meanTimes) {
                 scale = Scale.continuousPos(min(meanTimes), max(meanTimes), transform = Transformation.LOG10)

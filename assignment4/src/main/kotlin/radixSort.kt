@@ -6,8 +6,10 @@ import java.util.ArrayDeque
  * @param list the list to be sorted
  */
 fun <T : Number> radixSort(list: MutableList<T>) {
+    // Set up a bucket for each digit
     val buckets = (0..9).toList().associateWith { ArrayDeque<T>() }
 
+    // Figure out the order of magnitude of the smallest and largest digits
     var minDigit = Double.POSITIVE_INFINITY.toInt()
     var maxDigit = Double.NEGATIVE_INFINITY.toInt()
 
@@ -17,15 +19,19 @@ fun <T : Number> radixSort(list: MutableList<T>) {
         minDigit = min(minDigit, smallDigit)
     }
 
+    // For each digit
     for (mag in minDigit..maxDigit) {
+        // For each number
         for (number in list) {
             // add the number to the right bucket
             val digit = digitOf(number, mag)
             buckets[digit]!!.add(number)
         }
 
+        // Clear the list so it can be repopulated
         list.clear()
 
+        // Add the numbers back into the list, it digit order
         for (bucket in buckets.values) {
             while (bucket.isNotEmpty()) {
                 list.add(bucket.remove())

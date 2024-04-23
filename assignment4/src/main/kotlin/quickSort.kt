@@ -1,6 +1,8 @@
 /**
- * Sorts a [list] using quick sort. Sorts in place.
+ * Sorts the items in a [list] from the [start] index to the [end] index using quick sort. Sorts in place.
  * @param list the list to be sorted
+ * @param start the index to start sorting from
+ * @param end the index to end sorting at
  */
 fun <T : Comparable<T>> quickSort(list: MutableList<T>, start: Int, end: Int) {
     // If the length of the section to sort is 1 or 2, it is trivial
@@ -43,6 +45,10 @@ fun <T : Comparable<T>> quickSort(list: MutableList<T>, start: Int, end: Int) {
     }
 }
 
+/**
+ * Sorts a [list] using quick sort. Sorts in place.
+ * @param list the list to be sorted
+ */
 fun <T : Comparable<T>> quickSort(list: MutableList<T>) {
     val start = 0
     val end = list.size - 1
