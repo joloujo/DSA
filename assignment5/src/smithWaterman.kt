@@ -25,50 +25,48 @@ fun <T> smithWaterman(A: List<T>, B: List<T>, W: (Int) -> Int, s: (T, T) -> Int)
     }
 
     println(H)
+    println(traceback)
 
     var loc = H.maxLoc()
     val pairs = mutableListOf<Boolean>()
     val Alist = mutableListOf<T?>()
     val Blist = mutableListOf<T?>()
 
-    while (H[loc.first, loc.second] != 0) {
+    while (traceback[loc.first, loc.second] != null) {
+        val next = traceback[loc.first, loc.second]!!
 
-        val diag = H[loc.first - 1, loc.second - 1]
-        val up = H[loc.first - 1, loc.second]
-        val left = H[loc.first, loc.second - 1]
-
-        print(listOf(diag, up, left))
-
-        if (diag >= up && diag >= left) {
-            print(" diag")
-            loc = Pair(loc.first - 1, loc.second - 1)
-            pairs.add(true)
-            Alist.add(A[loc.first])
-            Blist.add(B[loc.second])
-        } else {
-            pairs.add(false)
-            if (up >= left) {
-                print(" up")
-                loc = Pair(loc.first - 1, loc.second)
-                Alist.add(A[loc.first])
+        // Diagonal case
+        when (loc - next) {
+            // diagonal case
+            Pair(1, 1) -> {
+                pairs.add(true)
+                Alist.add(A[loc.first-1])
+                Blist.add(B[loc.second-1])
+            }
+            // up case
+            Pair(1, 0) -> {
+                pairs.add(false)
+                Alist.add(A[loc.first-1])
                 Blist.add(null)
-            } else {
-                print(" left")
-                loc = Pair(loc.first, loc.second - 1)
+            }
+            // left case
+            Pair(0, 1) -> {
+                pairs.add(false)
                 Alist.add(null)
-                Blist.add(B[loc.second])
+                Blist.add(B[loc.second-1])
             }
         }
-        println()
+
+        loc = next
     }
 
     pairs.reverse()
     Alist.reverse()
     Blist.reverse()
 
-    println(Alist)
-    println(pairs)
-    println(Blist)
+    println(Blist.map { it ?: '-' }.joinToString(separator = ""))
+    println(pairs.map {if (it) '|' else ' '}.joinToString(separator = ""))
+    println(Alist.map { it ?: '-' }.joinToString(separator = ""))
 }
 
 fun smithWaterman(A: String, B: String, W: (Int) -> Int, s: (Char, Char) -> Int) {
@@ -76,4 +74,8 @@ fun smithWaterman(A: String, B: String, W: (Int) -> Int, s: (Char, Char) -> Int)
     val Bchars = B.toList()
 
     return smithWaterman(Achars, Bchars, W, s)
+}
+
+operator fun Pair<Int, Int>.minus(other: Pair<Int, Int>): Pair<Int, Int> {
+    return Pair(this.first - other.first, this.second - other.second)
 }
