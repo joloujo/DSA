@@ -7,10 +7,10 @@ fun main() {
         val size = 2.0.pow(power).toInt()
 
         val m1 = matrixOf(List(size) {
-            List(size) { Random.nextDouble(-9.0, 9.0) }
+            List(size) { Random.nextInt(-9, 9) }
         })
         val m2 = matrixOf(List(size) {
-            List(size) { Random.nextDouble(-9.0, 9.0) }
+            List(size) { Random.nextInt(-9, 9) }
         })
 
         println("$size x $size matrix:")
