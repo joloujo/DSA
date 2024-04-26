@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c53e0662-c65b-4765-a0f8-0f09b29a843c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SmithWatermanKtTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IntMatrix.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/IntMatrix.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Matrix.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrix.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SWDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/SWDemo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/smithWaterman.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/smithWaterman.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/times.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/times.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/IntMatrixTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/test/IntMatrixTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MatrixTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/test/MatrixTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment9" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment9" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -38,37 +45,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.IntMatrixTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IntMatrixTest.strassenMultiply.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.MatrixTest.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.SWDemoKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TimesKt.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.IntMatrixTest.executor": "Run",
+    "JUnit.IntMatrixTest.strassenMultiply.executor": "Debug",
+    "JUnit.MatrixTest.executor": "Run",
+    "JUnit.SmithWatermanKtTest.smithWaterman.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.SWDemoKt.executor": "Run",
+    "Kotlin.TimesKt.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "profiler.jvm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -80,7 +88,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.SWDemoKt">
+  <component name="RunManager" selected="Kotlin.TimesKt">
     <configuration name="IntMatrixTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment5" />
       <option name="PACKAGE_NAME" value="" />
@@ -95,6 +103,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MatrixTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmithWatermanKtTest.smithWaterman" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SmithWatermanKtTest" />
+      <option name="METHOD_NAME" value="smithWaterman" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,10 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.SWDemoKt" />
-        <item itemvalue="JUnit.MatrixTest" />
-        <item itemvalue="JUnit.IntMatrixTest" />
         <item itemvalue="Kotlin.TimesKt" />
+        <item itemvalue="JUnit.MatrixTest" />
+        <item itemvalue="Kotlin.SWDemoKt" />
+        <item itemvalue="JUnit.SmithWatermanKtTest.smithWaterman" />
+        <item itemvalue="JUnit.IntMatrixTest" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +168,7 @@
       <workItem from="1713496046278" duration="660000" />
       <workItem from="1713796269636" duration="43000" />
       <workItem from="1713898155689" duration="695000" />
-      <workItem from="1714081603381" duration="3098000" />
+      <workItem from="1714081603381" duration="12601000" />
     </task>
     <servers />
   </component>

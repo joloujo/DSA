@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions.*
 
 class IntMatrixTest {
+    // Create matrices to test with
     private val m1 = matrixOf(listOf(
         listOf(1, 2, 3),
         listOf(4, 5, 6)
@@ -58,29 +59,48 @@ class IntMatrixTest {
         listOf(5, 7)
     ))
 
+    /**
+     * Test the [times][IntMatrix.times] method of the [IntMatrix] class.
+     */
     @org.junit.jupiter.api.Test
     fun multiply() {
+        // Test basic multiplication
         assertEquals(m3, m1 * m2)
         assertEquals(m6, m4 * m5)
+
+        // Make sure null is returned with incompatible sizes
         assertNull(m1 * m4)
     }
 
+    /**
+     * Test the [plus][IntMatrix.plus] method of the [IntMatrix] class.
+     */
     @org.junit.jupiter.api.Test
     fun plus() {
+        // Test addition
         assertEquals(m8, m3 + m7)
     }
 
+    /**
+     * Test the [minus][IntMatrix.minus] method of the [IntMatrix] class.
+     */
     @org.junit.jupiter.api.Test
     fun minus() {
+        // Test subtraction
         assertEquals(m9, m3 - m7)
     }
 
+    /**
+     * Test the [strassenMultiply][IntMatrix.strassenMultiply] method of the [IntMatrix] class.
+     */
     @org.junit.jupiter.api.Test
     fun strassenMultiply() {
+        // Make sure strassen multiplication returns the same as traditional multiplication
         assertEquals(m3 * m7, m3.strassenMultiply(m7))
         assertEquals(m8 * m9, m8.strassenMultiply(m9))
         assertEquals(m10 * m11, m10.strassenMultiply(m11))
 
+        // Make sure null is returned with incompatible sizes
         assertNull(m1.strassenMultiply(m2))
         assertNull(m10.strassenMultiply(m3))
     }
