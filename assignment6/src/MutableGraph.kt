@@ -212,4 +212,21 @@ class MutableGraph<N> : MutableCollection<N> {
         // Then join each line together
         }).joinToString(separator = "\n")
     }
+
+    /**
+     * Get the weight of the given path
+     * @param path the list of nodes to traverse
+     * @return the sum of the weights of each pair of nodes in the path, or null if the path is disconnected
+     */
+    fun pathWeight(path: List<N>): Int? {
+        // Create a variable to keep track of the total weight
+        var weight = 0
+
+        // For each pair of nodes, add their weight to the path weight. If the nodes are disconnected, return null
+        for (i in 0..<path.size-1) {
+            weight += get(path[i], path[i+1]) ?: return null
+        }
+
+        return weight
+    }
 }

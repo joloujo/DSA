@@ -237,4 +237,26 @@ class MutableGraphTest {
             g.toString()
         )
     }
+
+    /**
+     * Check getting the weight of a path of nodes
+     */
+    @Test
+    fun pathWeight() {
+        // Populate some arbitrary weights
+        g['A', 'B'] = 3
+        g['B', 'C'] = 2
+        g['C', 'D'] = 5
+        g['B', 'D'] = 1
+        g['D', 'C'] = 4
+
+        // A -> B -> C -> D = 3 + 2 + 5 = 10
+        assertEquals(10, g.pathWeight(listOf('A', 'B', 'C', 'D')))
+
+        // A -> B -> D -> C = 3 + 1 + 4 = 8
+        assertEquals(8, g.pathWeight(listOf('A', 'B', 'D', 'C')))
+
+        // A -> C -> B -> D = null + null + 1 = null
+        assertNull(g.pathWeight(listOf('A', 'C', 'B', 'D')))
+    }
 }
