@@ -1,15 +1,41 @@
+import kotlinx.coroutines.*
+import kotlin.time.TimedValue
+import kotlin.time.measureTimedValue
+
 fun main() {
-    val g = MutableGraph<Char>()
+    measureTimedValue {  }
 
-    g.addAll('A', 'B', 'C', 'D')
-    g['A', 'B'] = 1
-    g['B', 'A'] = 3
-    println(g)
+    doSomething()
 
-    g.add('E')
-    g.removeAll('B', 'C', 'F')
-    println(g)
+    print(test(100L) {
+        while (true) {
+            yield()
+        }
+    })
 
-    g.add('E')
-    println(g)
+    print(measureTimedValue(100L) {
+        while (true) {
+            yield()
+        }
+    })
+}
+
+fun <T> measureTimedValue(timeout: Long, block: suspend CoroutineScope.() -> T): TimedValue<T>? = runBlocking {
+    return@runBlocking withTimeoutOrNull(timeout) {
+        measureTimedValue {
+            runBlocking {
+                block()
+            }
+        }
+    }
+}
+
+fun <T> test(timeout: Long, block: suspend CoroutineScope.() -> T): T? = runBlocking {
+    return@runBlocking withTimeoutOrNull(timeout) {
+        block()
+    }
+}
+
+fun doSomething() = runBlocking {
+    yield()
 }
