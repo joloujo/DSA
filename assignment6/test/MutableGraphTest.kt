@@ -30,6 +30,15 @@ class MutableGraphTest {
     }
 
     /**
+     * Test getting the nodes in the list
+     */
+    @Test
+    fun nodes() {
+        // Makes sure the nodes are correct
+        assertEquals(setOf('A', 'B', 'C', 'D'), g.nodes())
+    }
+
+    /**
      * Test clearing the graph
      */
     @Test

@@ -13,6 +13,14 @@ class MutableGraph<N> : MutableCollection<N> {
         get() = nodes.size
 
     /**
+     * Return the set of nodes in the graph
+     * @return the nodes in the graph
+     */
+    fun nodes(): Set<N> {
+        return nodes.toSet()
+    }
+
+    /**
      * Check if the sizes of the underlying data structures match. Used for testing.
      * @return true if all sizes match, false if any don't
      */
