@@ -268,4 +268,16 @@ class MutableGraphTest {
         // A -> C -> B -> D = null + null + 1 = null
         assertNull(g.pathWeight(listOf('A', 'C', 'B', 'D')))
     }
+
+    /**
+     * Just make sure randomizing the list doesn't throw an error. Print it so it can be visually checked
+     */
+    @Test
+    fun randomize() {
+        g.randomize()
+        println(g)
+
+        g.randomize(0.25, 0, 2)
+        println(g)
+    }
 }

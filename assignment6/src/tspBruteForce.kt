@@ -1,7 +1,22 @@
+/**
+ * Find the exact shortest Hamiltonian path using brute force. Recurses through every permutation of nodes and checks
+ * the path weight of that permutation.
+ * @param graph the graph to find the path in
+ * @return a pair of the shortest path that visits each node and it's path weight
+ */
 fun <T> tspBruteForce(graph: MutableGraph<T>): Pair<MutableList<T>, Int?> {
     return tspBruteForce(graph, listOf(), graph.nodes().toList())
 }
 
+/**
+ * Find the exact shortest Hamiltonian path using brute force. Recurses through every permutation of nodes and checks
+ * the path weight of that permutation.
+ * @param graph the graph to find the path in
+ * @param currentPath the current path to add to. Used for recursion
+ * @param remainingNodes the nodes to choose from to add to the current path. Cannot be empty. Used for recursion
+ * @return a pair of the shortest path starting with [currentPath] and using all [remainingNodes], and it's path weight.
+ * If no path exists that visits all nodes, returns an empty path list and a null path weight
+ */
 fun <T> tspBruteForce(graph: MutableGraph<T>, currentPath: List<T>, remainingNodes: List<T>): Pair<MutableList<T>, Int?> {
     // Create variables to keep track of the best path and it's weight
     var bestPath = mutableListOf<T>()
@@ -16,13 +31,11 @@ fun <T> tspBruteForce(graph: MutableGraph<T>, currentPath: List<T>, remainingNod
             bestPath = currentPath.toMutableList()
             bestPath.add(remainingNodes[0])
             minWeight = graph.pathWeight(bestPath)
-
-            println("$bestPath | $minWeight")
         }
 
         // If there are two or more options
         else -> {
-            // Recurse through each permutation
+            // Recurse through each permutation by creating a branch for each next node
             for (i in remainingNodes.indices) {
                 // Add the next node to the current path
                 val nextPath = currentPath.toMutableList()

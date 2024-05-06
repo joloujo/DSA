@@ -1,4 +1,5 @@
 import kotlin.math.max
+import kotlin.random.Random
 
 /**
  * A class to represent a directed weighted graph.
@@ -236,5 +237,24 @@ class MutableGraph<N> : MutableCollection<N> {
         }
 
         return weight
+    }
+
+    /**
+     * Set the weights of the graph to be random. Includes loops, meaning that a node can have a non-zero weight with
+     * itself
+     */
+    fun randomize(nullProbability: Double = 0.0, minWeight: Int = 1, maxWeight: Int = 9) {
+        // For each edge
+        for (y in edges.indices) {
+            for (x in edges[y].indices) {
+                // Either disconnect the edge or pick a random weight based on the null probability
+                edges[y][x] = if (Random.nextDouble(1.0) <= nullProbability) {
+                    null
+                } else {
+                    // Make sure that the upper bound is inclusive instead of exclusive
+                    Random.nextInt(minWeight, maxWeight+1)
+                }
+            }
+        }
     }
 }
